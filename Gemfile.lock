@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    embratel (0.0.1)
+      fastercsv (= 1.5.3)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    fastercsv (1.5.3)
+    rake (0.8.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.0.0)
+  embratel!
+  fastercsv (= 1.5.3)
+  rake (= 0.8.7)

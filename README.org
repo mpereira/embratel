@@ -1,0 +1,19 @@
+* embratel
+** Instalando
+#+BEGIN_SRC
+gem install embratel
+#+END_SRC
+** Testando
+   Para rodar os testes você precisa ter o
+   [[http://github.com/carlhuda/bundler][bundler]] instalado.
+#+BEGIN_SRC
+gem install bundler
+bundle install
+rake test
+#+END_SRC
+
+** Autor
+   [[mailto:murilo.soares3@gmail.com][Murilo Soares Pereira]].
+
+** Licença
+   Distribuído sob a [[http://github.com/murilasso/embratel/blob/master/MIT-LICENSE][licença MIT]].
