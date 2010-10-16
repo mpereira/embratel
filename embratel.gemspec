@@ -8,8 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Murilo Soares Pereira"]
   s.email       = ["murilo.soares3@gmail.com"]
   s.homepage    = "http://github.com/murilasso/embratel"
-  s.summary     = "Gem for extracting information from Embratel's phone bill files."
-  s.description = ""
+  s.summary     = "Extract calls information from Embratel's phone bill files."
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "embratel"
