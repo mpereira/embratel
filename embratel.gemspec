@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Murilo Soares Pereira"]
   s.email       = ["murilo.soares3@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/embratel"
+  s.homepage    = "http://github.com/murilasso/embratel"
   s.summary     = "Gem for extracting information from Embratel's phone bill files."
   s.description = ""
 
