@@ -3,6 +3,54 @@
 #+BEGIN_SRC
 gem install embratel
 #+END_SRC
+   Você precisa ter o ruby e o rubygems instalados.
+
+** Uso
+   A Embratel fornece faturas de conta de telefone em seu
+   [[http://fatura.embratel.net.br/embratel/index.html][serviço online]].
+   Para extrair informações sobre uma fatura, você precisará do arquivo
+   .csv de um dado mês.
+*** Como obter o arquivo da fatura?
+    - [[http://fatura.embratel.net.br/embratel/jsp/selectClientRegister.jsp][cadastre-se]] se você não possui uma conta
+    - logue no site
+    - escolha o mês da fatura
+    - vá em 'Opções' e selecione 'Exportar toda a conta'
+    - exporte como 'Excel - CSV'
+
+*** Classes da gem
+#+BEGIN_SRC
+Embratel::PhoneBill
+Embratel::Call
+#+END_SRC
+
+*** Com o arquivo da fatura você pode
+#+BEGIN_SRC
+phone_bill = Embratel::PhoneBill.new("/path/to/fatura.csv")
+
+# array com todas as ligações da fatura (array de objetos Embratel::Call)
+phone_bill.calls
+
+# custo total da fatura
+phone_bill.total
+#+END_SRC
+
+*** attr_accessors disponíveis para objetos Embratel::Call
+#+BEGIN_SRC
+id
+caller
+description
+date
+number_called
+caller_local
+called_local
+start_time
+end_time
+imp
+country
+quantity
+unit
+cost
+#+END_SRC
 
 ** Para rodar os testes
 *** Pegue o código
@@ -11,7 +59,7 @@ git clone git://github.com/murilasso/embratel.git
 cd embratel
 #+END_SRC
 
-*** Instale o bundler e as dependências (se elas já não estiverem instaladas)
+*** Instale o bundler e as dependências (se já não estiverem instaladas)
 #+BEGIN_SRC
 gem install bundler
 bundle install
