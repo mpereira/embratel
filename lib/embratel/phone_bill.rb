@@ -12,7 +12,7 @@ module Embratel
       rescue FasterCSV::MalformedCSVError
         raise
       else
-        raise InvalidPhoneBillFileError if invalid_rows?
+        raise InvalidPhoneBillFileError if (invalid_rows? || non_csv?(path))
       end
     end
 
@@ -28,10 +28,15 @@ module Embratel
     end
 
     private
+
     def invalid_rows?
       csv = @csv.dup
       3.times  { csv.shift }
       csv.any? { |row| !Call.new(row).valid? }
+    end
+
+    def non_csv?(path)
+      File.extname(path) != '.csv'
     end
   end
 end

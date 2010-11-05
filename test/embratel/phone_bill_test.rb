@@ -23,6 +23,10 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
     "#{FIXTURES_PATH}/valid_phone_bill_file.csv"
   end
 
+  def non_csv_phone_bill_file_path
+    "#{FIXTURES_PATH}/phone_bill.txt"
+  end
+
   def test_phone_bill_instantiation_with_a_non_existing_file_path
     assert_raise(Errno::ENOENT) { Embratel::PhoneBill.new(non_existing_file_path) }
   end
@@ -40,6 +44,12 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
   def test_phone_bill_instantiation_with_an_invalid_csv_phone_bill_file_path
     assert_raise(Embratel::InvalidPhoneBillFileError) do
       Embratel::PhoneBill.new(invalid_csv_phone_bill_file_path)
+    end
+  end
+
+  def test_does_not_allow_other_file_extensions_than_csv
+    assert_raise(Embratel::InvalidPhoneBillFileError) do
+      Embratel::PhoneBill.new(non_csv_phone_bill_file_path)
     end
   end
 
