@@ -71,7 +71,7 @@ rake test
 #+END_SRC
 
 ** Autor
-   [[http://www.comp.ufscar.br/~murilo][Murilo Soares Pereira]]
+   [[http://murilopereira.com][Murilo Pereira]]
 
 ** Licença
    Distribuído sob a [[http://github.com/murilasso/embratel/blob/master/MIT-LICENSE][licença MIT]].
