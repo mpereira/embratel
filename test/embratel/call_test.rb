@@ -2,8 +2,7 @@ require 'test_helper'
 
 class CallTest < Test::Unit::TestCase
   def row_with_a_missing_field
-    [
-     '1',
+    ['1',
      '1634125644-FRANQUIA 01',
      '04 - LIGACOES DDD PARA CELULARES',
      '11/08/10 A  99/99/99',
@@ -15,13 +14,11 @@ class CallTest < Test::Unit::TestCase
      '',
      '500',
      'MIN',
-     '0.73'
-    ]
+     '0.73']
   end
 
   def row_with_invalid_number_called
-    [
-     '1',
+    ['1',
      '1634125644-FRANQUIA 01',
      '04 - LIGACOES DDD PARA CELULARES',
      '11/08/10 A  99/99/99',
@@ -34,13 +31,11 @@ class CallTest < Test::Unit::TestCase
      '',
      '500',
      'MIN',
-     '0.73'
-    ]
+     '0.73']
   end
 
   def row_with_invalid_cost
-    [
-     '1',
+    ['1',
      '1634125644-FRANQUIA 01',
      '04 - LIGACOES DDD PARA CELULARES',
      '11/08/10 A  99/99/99',
@@ -53,13 +48,11 @@ class CallTest < Test::Unit::TestCase
      '',
      '500',
      'MIN',
-     '.73'
-    ]
+     '.73']
   end
 
   def valid_row
-    [
-     '1',
+    ['1',
      '1634125644-FRANQUIA 01',
      '04 - LIGACOES DDD PARA CELULARES',
      '11/08/10 A  99/99/99',
@@ -72,8 +65,7 @@ class CallTest < Test::Unit::TestCase
      '',
      '500',
      'MIN',
-     '0.73'
-    ]
+     '0.73']
   end
 
   def test_call_instantiated_with_a_row_with_a_missing_field

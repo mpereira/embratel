@@ -2,8 +2,7 @@ module Embratel
   class Call
     NUMBER_CALLED_REGEXP = /^\d{10}$/
     COST_REGEXP = /^\d*(\.\d+)?$/
-    FIELDS = %w[
-                id
+    FIELDS = %w[id
                 caller
                 description
                 date
@@ -16,8 +15,7 @@ module Embratel
                 country
                 quantity
                 unit
-                cost
-               ]
+                cost]
 
     FIELDS.each { |field| attr_accessor field.to_sym }
 
