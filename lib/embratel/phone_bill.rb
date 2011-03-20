@@ -1,15 +1,13 @@
-require 'fastercsv'
-
 module Embratel
   class PhoneBill
     def initialize(path)
       begin
-        @csv = FasterCSV.read(path, { :skip_blanks => true })
+        @csv = CSV.read(path, { :skip_blanks => true })
       rescue Errno::ENOENT
         raise
       rescue Errno::EISDIR
         raise
-      rescue FasterCSV::MalformedCSVError
+      rescue CSV::MalformedCSVError
         raise
       else
         raise InvalidPhoneBillFileError if (invalid_rows? || non_csv?(path))
