@@ -1,7 +1,7 @@
 * embratel
 ** Instalando
 #+BEGIN_SRC
-gem install embratel
+$ gem install embratel
 #+END_SRC
    Você precisa ter o ruby e o rubygems instalados.
 
@@ -25,13 +25,14 @@ Embratel::Call
 
 *** Com o arquivo da fatura você pode
 #+BEGIN_SRC
-phone_bill = Embratel::PhoneBill.new("/path/to/fatura.csv")
+# Instancie uma fatura.
+>> phone_bill = Embratel::PhoneBill.new("/path/to/fatura.csv")
 
-# array com todas as ligações da fatura (array de objetos Embratel::Call)
-phone_bill.calls
+# PhoneBill#calls retorna um array com todas as ligações da fatura (objetos Embratel::Call).
+>> phone_bill.calls
 
-# custo total da fatura
-phone_bill.total
+# PhoneBill#total retorna o custo total da fatura.
+>> phone_bill.total
 #+END_SRC
 
 *** attr_accessors disponíveis para objetos Embratel::Call
@@ -55,19 +56,19 @@ cost
 ** Para rodar os testes
 *** Pegue o código
 #+BEGIN_SRC
-git clone git://github.com/murilasso/embratel.git
-cd embratel
+$ git clone git://github.com/murilasso/embratel.git
+$ cd embratel
 #+END_SRC
 
 *** Instale o bundler e as dependências (se já não estiverem instaladas)
 #+BEGIN_SRC
-gem install bundler
-bundle install
+$ gem install bundler
+$ bundle install
 #+END_SRC
 
 *** Rode os testes
 #+BEGIN_SRC
-rake test
+$ rake test
 #+END_SRC
 
 ** Autor
