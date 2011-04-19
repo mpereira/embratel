@@ -1,7 +1,7 @@
 module Embratel
   class Call
     NUMBER_CALLED_REGEXP = /^\d{10}$/
-    COST_REGEXP = /^\d*(\.\d+)?$/
+    COST_REGEXP = /^\d+(?:\.\d+)?$/
     FIELDS = %w[id
                 caller
                 description
@@ -29,8 +29,8 @@ module Embratel
 
     def valid?
       @csv_row_size == 14 &&
-      number_called =~ NUMBER_CALLED_REGEXP &&
-      cost =~ COST_REGEXP
+        !!(number_called =~ NUMBER_CALLED_REGEXP) &&
+        !!(cost =~ COST_REGEXP)
     end
   end
 end
