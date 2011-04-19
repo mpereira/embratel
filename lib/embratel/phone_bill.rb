@@ -1,40 +1,13 @@
 module Embratel
   class PhoneBill
-    def initialize(path)
-      begin
-        @csv = CSV.read(path, { :skip_blanks => true })
-      rescue Errno::ENOENT
-        raise
-      rescue Errno::EISDIR
-        raise
-      rescue CSV::MalformedCSVError
-        raise
-      else
-        raise InvalidPhoneBillFileError if (invalid_rows? || non_csv?(path))
-      end
-    end
+    attr_reader :calls
 
-    def calls
-      @calls ||= @csv.inject([]) do |calls, row|
-        call = Call.new(row)
-        call.valid? ? (calls << call) : calls
-      end
+    def initialize(path)
+      @calls = CSVParser.parse(path)
     end
 
     def total
       @total ||= calls.inject(0) { |sum, call| sum += call.cost.to_f }
-    end
-
-    private
-
-    def invalid_rows?
-      csv = @csv.dup
-      3.times  { csv.shift }
-      csv.any? { |row| !Call.new(row).valid? }
-    end
-
-    def non_csv?(path)
-      File.extname(path) != '.csv'
     end
   end
 end
