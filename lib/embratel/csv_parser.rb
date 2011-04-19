@@ -14,16 +14,16 @@ module Embratel
       else
         # Skipping title and header lines.
         2.times { rows.shift }
-        error_messages, calls = [], []
+        invalid_rows, calls = [], []
         rows.each_with_index do |row, index|
           if !(call = Call.new(row)).valid?
-            error_messages << "erro: a linha #{index + 1} é inválida"
+            invalid_rows << index + 1
           else
             calls << call
           end
         end
-        if !error_messages.empty?
-          raise InvalidRowsError, error_messages.join("\n")
+        if !invalid_rows.empty?
+          raise InvalidRowsError, "Erro nas linhas #{invalid_rows.join(', ')}"
         else
           calls
         end
