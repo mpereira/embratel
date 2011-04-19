@@ -1,6 +1,4 @@
-$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-require 'rubygems'
-require 'embratel'
+require File.expand_path('../../lib/embratel.rb', __FILE__)
 require 'test/unit'
 
 class Test::Unit::TestCase

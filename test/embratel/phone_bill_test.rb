@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.expand_path('../../test_helper', __FILE__)
 
 class Embratel::PhoneBillTest < Test::Unit::TestCase
   FIXTURES_PATH = File.join(File.dirname(__FILE__), '..', 'fixtures')

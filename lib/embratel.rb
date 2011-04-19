@@ -5,8 +5,9 @@ else
   require 'csv'
 end
 
-require 'embratel/call.rb'
-require 'embratel/phone_bill.rb'
+require File.expand_path('../embratel/csv_parser', __FILE__)
+require File.expand_path('../embratel/call', __FILE__)
+require File.expand_path('../embratel/phone_bill', __FILE__)
 
 module Embratel
   VERSION = '1.0.0'

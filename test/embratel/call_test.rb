@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.expand_path('../../test_helper', __FILE__)
 
 class CallTest < Test::Unit::TestCase
   def row_with_a_missing_field
