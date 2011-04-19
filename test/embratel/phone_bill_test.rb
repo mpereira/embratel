@@ -12,7 +12,7 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
   end
 
   def non_phone_bill_file_path
-    "#{FIXTURES_PATH}/text_file.txt"
+    "#{FIXTURES_PATH}/lorem_ipsum.csv"
   end
 
   def invalid_csv_phone_bill_file_path

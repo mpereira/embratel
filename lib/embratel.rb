@@ -13,4 +13,7 @@ module Embratel
   VERSION = '1.0.0'
 
   class InvalidPhoneBillFileError < StandardError; end
+  class InvalidRowsError < StandardError; end
+  class NonCSVFileError < StandardError; end
+  class InvalidCSVFileError < StandardError; end
 end
