@@ -18,9 +18,27 @@ class CallTest < Test::Unit::TestCase
                                     'MIN',
                                      '0.73']
 
+  ROW_WITH_MANGLED_NUMBER_CALLED = ['1',
+                                    '1634125644-FRANQUIA 01',
+                                    '04 - LIGACOES DDD PARA CELULARES',
+                                    '11/08/10 A  99/99/99',
+                                    '19936-----',
+                                    'SCL -SP',
+                                    'CAS -SP',
+                                    '02:56:29 AM',
+                                    '',
+                                    'E',
+                                    '',
+                                    '500',
+                                    'MIN',
+                                     '0.73']
+
   def test_valid_with_a_row_with_invalid_number_called
-    call = Embratel::Call.new(ROW_WITH_INVALID_NUMBER_CALLED)
-    assert(!call.valid?)
+    assert(!Embratel::Call.new(ROW_WITH_INVALID_NUMBER_CALLED).valid?)
+  end
+
+  def test_valid_with_a_row_with_mangled_number_called
+    assert(Embratel::Call.new(ROW_WITH_MANGLED_NUMBER_CALLED).valid?)
   end
 
   def test_valid_with_a_valid_fee_row

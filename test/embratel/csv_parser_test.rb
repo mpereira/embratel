@@ -42,8 +42,8 @@ class Embratel::CSVParserTest < Test::Unit::TestCase
     payables = Embratel::CSVParser.parse(VALID_CSV_PHONE_BILL_FILE_PATH)
     calls = payables.select(&:call?)
     fees = payables.select(&:fee?)
-    assert_equal(4, payables.size)
-    assert_equal(3, calls.size)
+    assert_equal(5, payables.size)
+    assert_equal(4, calls.size)
     assert_equal(1, fees.size)
   end
 end

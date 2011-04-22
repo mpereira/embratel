@@ -7,7 +7,7 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
 
   def test_calls
     phone_bill = Embratel::PhoneBill.new(VALID_CSV_PHONE_BILL_FILE_PATH)
-    assert_equal(3, phone_bill.calls.size)
+    assert_equal(4, phone_bill.calls.size)
     phone_bill.calls.each { |call| assert(call.is_a?(Embratel::Call)) }
   end
 
@@ -19,6 +19,6 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
 
   def test_total
     phone_bill = Embratel::PhoneBill.new(VALID_CSV_PHONE_BILL_FILE_PATH)
-    assert_equal(11.59, phone_bill.total)
+    assert_equal(11.7, phone_bill.total)
   end
 end
