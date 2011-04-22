@@ -1,13 +1,21 @@
 module Embratel
   class PhoneBill
-    attr_reader :calls
+    attr_reader :payables
 
     def initialize(path)
-      @calls = CSVParser.parse(path)
+      @payables = CSVParser.parse(path)
+    end
+
+    def calls
+      @calls ||= @payables.select(&:call?)
+    end
+
+    def fees
+      @calls ||= @payables.select(&:fee?)
     end
 
     def total
-      @total ||= calls.inject(0) { |sum, call| sum += call.cost.to_f }
+      @total ||= payables.inject(0) { |sum, payable| sum += payable.cost.to_f }
     end
   end
 end

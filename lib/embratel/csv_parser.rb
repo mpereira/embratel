@@ -9,29 +9,27 @@ module Embratel
     rescue Errno::ENOENT, Errno::EISDIR, CSV::MalformedCSVError
       raise
     else
-      if !csv?(path)
+      if File.extname(path) != '.csv'
         raise NonCSVFileError
       else
         # Skipping title and header lines.
         2.times { rows.shift }
-        invalid_rows, calls = [], []
+        invalid_rows, calls, fees = [], [], []
         rows.each_with_index do |row, index|
-          if !(call = Call.new(row)).valid?
-            invalid_rows << index + 1
-          else
+          if (call = Call.new(row)).valid?
             calls << call
+          elsif (fee = Fee.new(row)).valid?
+            fees << fee
+          else
+            invalid_rows << index + 1
           end
         end
-        if !invalid_rows.empty?
-          raise InvalidRowsError, "Erro nas linhas #{invalid_rows.join(', ')}"
+        if invalid_rows.empty?
+          calls + fees
         else
-          calls
+          raise InvalidRowsError, "Erro nas linhas #{invalid_rows.join(', ')}"
         end
       end
-    end
-
-    def csv?(path)
-      File.extname(path) == '.csv'
     end
   end
 end

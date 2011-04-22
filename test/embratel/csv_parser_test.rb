@@ -11,7 +11,9 @@ class Embratel::CSVParserTest < Test::Unit::TestCase
   NON_CSV_PHONE_BILL_FILE_PATH     = "#{FIXTURES_PATH}/phone_bill.txt"
 
   def test_csv_parser_instantiation_with_a_non_existing_file_path
-    assert_raise(Errno::ENOENT) { Embratel::CSVParser.parse(NON_EXISTING_FILE_PATH) }
+    assert_raise(Errno::ENOENT) do
+      Embratel::CSVParser.parse(NON_EXISTING_FILE_PATH)
+    end
   end
 
   def test_csv_parser_instantiation_with_a_directory_path
@@ -36,11 +38,12 @@ class Embratel::CSVParserTest < Test::Unit::TestCase
     end
   end
 
-  def test_csv_with_valid_phone_bill_file
-    assert(Embratel::CSVParser.csv?(VALID_CSV_PHONE_BILL_FILE_PATH))
-  end
-
   def test_parse_with_valid_phone_bill_file
-    assert_equal(3, Embratel::CSVParser.parse(VALID_CSV_PHONE_BILL_FILE_PATH).size)
+    payables = Embratel::CSVParser.parse(VALID_CSV_PHONE_BILL_FILE_PATH)
+    calls = payables.select(&:call?)
+    fees = payables.select(&:fee?)
+    assert_equal(4, payables.size)
+    assert_equal(3, calls.size)
+    assert_equal(1, fees.size)
   end
 end

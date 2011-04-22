@@ -5,8 +5,10 @@ else
   require 'csv'
 end
 
-require File.expand_path('../embratel/csv_parser', __FILE__)
+require File.expand_path('../embratel/payable', __FILE__)
 require File.expand_path('../embratel/call', __FILE__)
+require File.expand_path('../embratel/fee', __FILE__)
+require File.expand_path('../embratel/csv_parser', __FILE__)
 require File.expand_path('../embratel/phone_bill', __FILE__)
 
 module Embratel
