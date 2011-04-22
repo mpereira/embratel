@@ -17,25 +17,24 @@ $ gem install embratel
     - vá em 'Opções' e selecione 'Exportar toda a conta'
     - exporte como 'Excel - CSV'
 
-*** Classes da gem
-#+BEGIN_SRC
-Embratel::PhoneBill
-Embratel::Call
-#+END_SRC
-
 *** Com o arquivo da fatura você pode
 #+BEGIN_SRC
-# Instancie uma fatura.
 >> phone_bill = Embratel::PhoneBill.new("/path/to/fatura.csv")
 
-# PhoneBill#calls retorna um array com todas as ligações da fatura (objetos Embratel::Call).
+# Array com todas as ligações da fatura (objetos Embratel::Call).
 >> phone_bill.calls
 
-# PhoneBill#total retorna o custo total da fatura.
+# Array com todas as taxas da fatura (objetos Embratel::Fee).
+>> phone_bill.fees
+
+# Array com todas as ligações e taxas da fatura.
+>> phone_bill.payables
+
+# Custo total da fatura.
 >> phone_bill.total
 #+END_SRC
 
-*** attr_accessors disponíveis para objetos Embratel::Call
+*** attr_accessors disponíveis para objetos Embratel::Call e Embratel::Fee
 #+BEGIN_SRC
 id
 caller
