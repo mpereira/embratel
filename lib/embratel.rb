@@ -14,8 +14,6 @@ require File.expand_path('../embratel/phone_bill', __FILE__)
 module Embratel
   VERSION = '1.1.1'
 
-  class InvalidPhoneBillFileError < StandardError; end
   class InvalidRowsError < StandardError; end
   class NonCSVFileError < StandardError; end
-  class InvalidCSVFileError < StandardError; end
 end
