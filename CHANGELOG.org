@@ -1,10 +1,19 @@
+* 1.1.1
+#+BEGIN_SRC
+042f50e Version bump.
+0e6d44b Improved exception message for parse errors.
+bde08e2 Handle parsing mangled number calleds.
+#+END_SRC
+
 * 1.1.0
 #+BEGIN_SRC
-ecbfb6a Improved cost regexp, made fixture reflect moar reality.
-b9140a4 Don't require relative
-492dd1c Implemented the CSVParser.
-c122e79 Make PhoneBill use CSVParser.
-7d83b31 Better exception message for parsing errors.
-37170f0 Parse and treat fees from phone bills files, too.
+f770897 Version bump.
+b80e49b Added CHANGELOG.
 41d0a5e Reflect latest changes in the README.
+37170f0 Parse and treat fees from phone bills files, too.
+7d83b31 Better exception message for parsing errors.
+c122e79 Make PhoneBill use CSVParser.
+492dd1c Implemented the CSVParser.
+b9140a4 Don't require relative
+ecbfb6a Improved cost regexp, made fixture reflect moar reality.
 #+END_SRC
