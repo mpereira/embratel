@@ -1,0 +1,10 @@
+* 1.1.0
+#+BEGIN_SRC
+ecbfb6a Improved cost regexp, made fixture reflect moar reality.
+b9140a4 Don't require relative
+492dd1c Implemented the CSVParser.
+c122e79 Make PhoneBill use CSVParser.
+7d83b31 Better exception message for parsing errors.
+37170f0 Parse and treat fees from phone bills files, too.
+41d0a5e Reflect latest changes in the README.
+#+END_SRC
