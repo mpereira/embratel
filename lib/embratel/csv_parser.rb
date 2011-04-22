@@ -21,15 +21,23 @@ module Embratel
           elsif (fee = Fee.new(row)).valid?
             fees << fee
           else
-            invalid_rows << index + 1
+            invalid_rows << index + 4
           end
         end
         if invalid_rows.empty?
           calls + fees
         else
-          raise InvalidRowsError, "Erro nas linhas #{invalid_rows.join(', ')}"
+          raise InvalidRowsError, invalid_rows_error_message(invalid_rows)
         end
       end
+    end
+
+    private
+
+    def invalid_rows_error_message(rows)
+      rows.
+        join(', ').
+        insert(0, rows.size == 1 ? 'Erro na linha ' : 'Erro nas linhas ')
     end
   end
 end
