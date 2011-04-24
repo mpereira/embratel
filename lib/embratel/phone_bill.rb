@@ -7,11 +7,11 @@ module Embratel
     end
 
     def calls
-      @calls ||= @payables.select(&:call?)
+      @calls ||= payables.select(&:call?)
     end
 
     def fees
-      @calls ||= @payables.select(&:fee?)
+      @fees ||= payables.select(&:fee?)
     end
 
     def total

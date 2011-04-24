@@ -21,4 +21,16 @@ class Embratel::PhoneBillTest < Test::Unit::TestCase
     phone_bill = Embratel::PhoneBill.new(VALID_CSV_PHONE_BILL_FILE_PATH)
     assert_equal(11.7, phone_bill.total)
   end
+
+  def test_fees_after_calls
+    phone_bill = Embratel::PhoneBill.new(VALID_CSV_PHONE_BILL_FILE_PATH)
+    assert_equal(4, phone_bill.calls.size)
+    assert_equal(1, phone_bill.fees.size)
+  end
+
+  def test_calls_after_fees
+    phone_bill = Embratel::PhoneBill.new(VALID_CSV_PHONE_BILL_FILE_PATH)
+    assert_equal(1, phone_bill.fees.size)
+    assert_equal(4, phone_bill.calls.size)
+  end
 end
