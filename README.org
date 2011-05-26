@@ -55,7 +55,7 @@ cost
 ** Para rodar os testes
 *** Pegue o código
 #+BEGIN_SRC
-$ git clone git://github.com/murilasso/embratel.git
+$ git clone git://github.com/mpereira/embratel.git
 $ cd embratel
 #+END_SRC
 
@@ -74,4 +74,4 @@ $ rake test
    [[http://murilopereira.com][Murilo Pereira]]
 
 ** Licença
-   Distribuído sob a [[http://github.com/murilasso/embratel/blob/master/MIT-LICENSE][licença MIT]].
+   Distribuído sob a [[http://github.com/mpereira/embratel/blob/master/MIT-LICENSE][licença MIT]].

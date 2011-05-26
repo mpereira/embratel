@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.author      = 'Murilo Pereira'
   s.email       = 'murilo@murilopereira.com'
-  s.homepage    = 'https://github.com/murilasso/embratel'
+  s.homepage    = 'https://github.com/mpereira/embratel'
   s.summary     = "Easily extract data from Embratel's phone bill files."
 
   s.required_rubygems_version = '>= 1.3.6'
